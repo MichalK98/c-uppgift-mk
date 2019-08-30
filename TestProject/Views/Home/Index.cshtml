@@ -1,0 +1,58 @@
+﻿@using TestProject.Controllers
+@model HomeIndexViewModel
+<!doctype html>
+<html>
+    <head>
+
+    <link rel="stylesheet" href="~/Css/style.css">
+
+    </head>
+    <body>
+
+        <div>
+            <form method="post" action="/api/user">
+                <input type="text" id="name" name="name" />
+                <input type="number" id="age" name="age" />
+                <div>
+                    <input type="radio" name="gender" value="Male" />
+                    <label for="male">Male</label>
+                </div>
+                <div>
+                    <input type="radio" name="gender" value="Female" />
+                    <label for="female">Female</label>
+                </div>
+                <div>
+                    <input type="radio" name="gender" value="Alien 👽" />
+                    <label for="alien">Alien</label>
+                </div>
+                <select name="color">
+                    <option value="Green">Green</option>
+                    <option value="Red">Red</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Pink">Pink</option>
+                </select>
+                <button type="submit">Post form</button>
+            </form>
+
+            <h2>Users</h2>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Color</th>
+                </tr>
+                @foreach (var user in Model.Users)
+                {
+                <tr>
+                    <td> @user.Name </td>
+                    <td> @user.Age </td>
+                    <td> @user.Gender </td>
+                    <td> @user.Color </td>
+                </tr>
+                }
+            </table>
+        </div>
+
+    </body>
+</html>
